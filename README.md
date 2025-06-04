@@ -1,11 +1,4 @@
-## Interactive 3D Animated Portfolio
----
-
-
-https://github.com/himanshu8443/3D-Portfolio/assets/99420590/6f11c9db-5f32-41e8-94f9-cbf52be8553e
-
-
----
+## Emma Dev Portfolio
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
