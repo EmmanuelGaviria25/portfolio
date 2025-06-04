@@ -51,7 +51,7 @@ const Tech = () => {
             loop
             muted
             autoPlay="autoplay"
-            src="/cards-video.mp4"
+            src="/content/cards-video.mp4"
           ></video>
         </div>
       </div>
