@@ -65,9 +65,16 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="sliderContainer md:z-[-10]">
-        <div ref={slider} className="slider overflow-hidden text-secondary text-[70px] lg:text-[200px]">
-          <p ref={firstText} >Desarrollador Full-Stack.</p>
+      <div className="sliderContainer z-[-10] select-none pointer-events-none w-full">
+        <div 
+          ref={slider} 
+          className="slider overflow-hidden font-black tracking-wider uppercase text-[70px] lg:text-[200px]"
+          style={{
+            WebkitTextStroke: "1px rgba(255, 255, 255, 0.04)",
+            color: "transparent"
+          }}
+        >
+          <p ref={firstText}>Desarrollador Full-Stack.</p>
           <p ref={secondText}>Líder Técnico.</p>
         </div>
       </div>
