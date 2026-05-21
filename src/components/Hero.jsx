@@ -74,8 +74,8 @@ const Hero = () => {
             color: "transparent"
           }}
         >
-          <p ref={firstText}>Desarrollador Full-Stack.</p>
-          <p ref={secondText}>Líder Técnico.</p>
+          <p ref={firstText}>Desarrollador Full-Stack // Arquitecto de Software // Líder Técnico // Especialista Cloud & DevOps // Desarrollador Mobile //</p>
+          <p ref={secondText}>Desarrollador Full-Stack // Arquitecto de Software // Líder Técnico // Especialista Cloud & DevOps // Desarrollador Mobile //</p>
         </div>
       </div>
 
