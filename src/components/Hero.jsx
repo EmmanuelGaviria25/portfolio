@@ -70,7 +70,7 @@ const Hero = () => {
           ref={slider} 
           className="slider overflow-hidden font-black tracking-wider uppercase text-[70px] lg:text-[200px]"
           style={{
-            WebkitTextStroke: "1px rgba(255, 255, 255, 0.04)",
+            WebkitTextStroke: "1px rgba(255, 255, 255, 0.15)",
             color: "transparent"
           }}
         >
