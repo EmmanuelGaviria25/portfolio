@@ -68,12 +68,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      // Determinar dinámicamente si estamos en producción (emma-dev.com)
-      // para redirigir la petición al backend seguro en Vercel,
-      // evitando problemas de CORS y bloqueando la API Key.
-      const API_URL = typeof window !== 'undefined' && window.location.hostname === 'emma-dev.com'
-        ? 'https://emma-dev-backend.vercel.app/api/send' // Puedes configurar el dominio de tu backend de Vercel aquí
-        : '/api/send';
+      const API_URL = '/api/send';
 
       const response = await fetch(API_URL, {
         method: 'POST',
