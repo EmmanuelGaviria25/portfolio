@@ -42,19 +42,17 @@ const Tech = () => {
       ))}
       </div>
     </div>
-    <div className=" w-full h-full  absolute top-10 flex flex-col  items-center  justify-center">
-        <div className=" w-[1000px] 1000:w-full h-full z-[-10] opacity-[0.3]  absolute flex flex-col bg-cover items-center justify-center ">
-          <video
-            className="w-full h-auto"
-            preload="false"
-            playsInline
-            loop
-            muted
-            autoPlay="autoplay"
-            src={"/content/cards-video.mp4"}
-          ></video>
-        </div>
-      </div>
+    <div className="absolute left-[calc(-50vw+50%)] w-screen h-full top-0 overflow-hidden pointer-events-none z-[-10] opacity-[0.25]">
+      <video
+        className="w-full h-full object-cover"
+        preload="auto"
+        playsInline
+        loop
+        muted
+        autoPlay
+        src="/content/cards-video.mp4"
+      ></video>
+    </div>
     </>
   );
 };

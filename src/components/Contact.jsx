@@ -38,7 +38,7 @@ const Contact = () => {
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("info@emma-dev.com");
+    navigator.clipboard.writeText("emmanuel.gaviria.25@gmail.com");
     setCopied(true);
     toast.success("¡Correo copiado al portapapeles!");
     setTimeout(() => {
@@ -153,7 +153,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="text-[10px] text-secondary uppercase tracking-widest font-semibold block">Escríbeme</span>
-                  <span className="text-white text-[15px] font-medium block mt-0.5">info@emma-dev.com</span>
+                  <span className="text-white text-[15px] font-medium block mt-0.5">emmanuel.gaviria.25@gmail.com</span>
                 </div>
               </div>
               
@@ -205,7 +205,7 @@ const Contact = () => {
               <FaGithub className="text-secondary group-hover/social:text-white transition-colors text-lg" />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/egaviria25"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-[#121215] border border-white/5 hover:border-[#FF3E44]/40 flex items-center justify-center hover:shadow-[0_0_15px_rgba(255,62,68,0.2)] transition-all duration-300 group/social hover:scale-105 active:scale-95"
