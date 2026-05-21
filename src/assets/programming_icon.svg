@@ -1,0 +1,58 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Strong Glow Filter for Crimson Accent -->
+    <filter id="glow-prog" x="-30%" y="-30%" width="160%" height="160%" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComponentTransfer in="blur" result="boost">
+        <feFuncA type="linear" slope="1.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="boost" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Primary Crimson to Red Gradient -->
+    <linearGradient id="grad-crimson-prog" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E44" />
+      <stop offset="60%" stop-color="#C22026" />
+      <stop offset="100%" stop-color="#7B0F13" />
+    </linearGradient>
+
+    <!-- Subtle terminal/grid wireframe gradient -->
+    <linearGradient id="grad-console-grid" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E44" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#A91D22" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sleek, Transparent, Borderless Wireframe Grid for Programming/IDE -->
+  <!-- IDE Sidebar divider line -->
+  <line x1="18" y1="6" x2="18" y2="58" stroke="url(#grad-console-grid)" stroke-width="1.2" />
+  <!-- IDE tabs slot wireframe -->
+  <rect x="22" y="8" width="10" height="4" rx="1" stroke="url(#grad-console-grid)" stroke-width="1" fill="none" />
+  <rect x="34" y="8" width="10" height="4" rx="1" stroke="url(#grad-console-grid)" stroke-width="1" fill="none" />
+  <!-- Structural code layout lines in the background -->
+  <path d="M6 14H14M6 20H12M6 26H14" stroke="url(#grad-console-grid)" stroke-width="1.2" stroke-linecap="round" />
+  <path d="M24 46H50M24 51H38" stroke="url(#grad-console-grid)" stroke-width="1.2" stroke-linecap="round" />
+
+  <!-- Center Floating Terminal Window & Cursor (Main Highlight) -->
+  <g filter="url(#glow-prog)">
+    <!-- Terminal Shell Console Frame -->
+    <rect x="16" y="15" width="42" height="28" rx="6" stroke="url(#grad-crimson-prog)" stroke-width="2.5" fill="#141416" fill-opacity="0.8" />
+    
+    <!-- Top Shell header controls (window controls in top left of the terminal box) -->
+    <circle cx="22" cy="20" r="1.5" fill="#FF5F56" />
+    <circle cx="27" cy="20" r="1.5" fill="#FFBD2E" />
+    <circle cx="32" cy="20" r="1.5" fill="#27C93F" />
+    
+    <!-- Shell prompt arrow (>) -->
+    <path d="M23 27L28 31L23 35" stroke="url(#grad-crimson-prog)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Flashing Block Cursor -->
+    <rect x="32" y="28" width="8" height="5" rx="1" fill="#FF3E44" />
+    
+    <!-- Secondary code output line in shell -->
+    <path d="M23 39H48" stroke="#5A181C" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

@@ -4,8 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { navLinks } from '@/constants/constants'
 import { styles } from '@/styles'
-import { menu, close } from '@/assets'
-import logo from '@/assets/logo.png'
+import { menu, close, logo } from '@/assets'
 import Image from 'next/image'
 
 const Navbar = () => {
@@ -45,11 +44,15 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <Image src={logo} alt='logo' className='w-16 h-16 object-contain' />
-          <p className='text-white text-[29px] font-bold cursor-pointer flex relative right-2 '>
-            &nbsp;&nbsp;Emma Dev &nbsp;
-            <span className='sm:block hidden'> </span>
-          </p>
+          <Image src={logo} alt='logo' className='w-14 h-14 object-contain' />
+          <div className='flex flex-col justify-center ml-1'>
+            <span className='text-white text-[18px] sm:text-[22px] font-bold leading-tight tracking-[0.01em]'>
+              Emmanuel Gaviria
+            </span>
+            <span className='text-secondary text-[8.5px] sm:text-[9.5px] font-semibold tracking-[0.16em] uppercase leading-none mt-1'>
+              Ingeniero de Software
+            </span>
+          </div>
         </Link>
 
         <ul className='list-none hidden sm:flex flex-row gap-10'>

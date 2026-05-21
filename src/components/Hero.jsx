@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 import Image from "next/image";
-import heroImg from "../assets/user.png"
+import { user } from "../assets";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -45,30 +45,41 @@ const Hero = () => {
 
   return (
     <section className={`relative z-[-1] w-full h-screen mx-auto banner overflow-hidden`}>
+      {/* Soft burgundy glowing backdrop behind the business card */}
+      <div className="absolute top-[31%] right-[15%] lg:top-[15%] lg:right-[15%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-burgundy rounded-full filter blur-[100px] md:blur-[150px] opacity-30 z-[-3] animation" />
+
       <div
-        className={`absolute inset-0 top-[150px] right-40 z-[-1] animation  max-w-7xl mx-auto sm:px-16 px-6 flex flex-row items-start gap-5`}
+        className={`absolute inset-0 top-[120px] md:top-[150px] right-0 md:right-40 z-[-1] animation max-w-7xl mx-auto sm:px-16 px-6 flex flex-row items-start gap-5`}
       >
         <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#4e1619]' />
+          <div className='w-5 h-5 rounded-full bg-burgundy' />
           <div className='w-1 sm:h-80 h-40 winered-gradient' />
         </div>
 
         <div data-scroll data-scroll-speed='0.4'>
-          <h1 className={`font-black lg:text-[90px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-20 text-white`}>
-            Hi, I'm <p className='text-transparent bg-clip-text bg-gradient-to-r from-[#4e1619] to-[#000000] text-[60px] lg:text-[110px]'>Emmanuel</p>
+          <h1 className={`font-black lg:text-[90px] sm:text-[65px] xs:text-[55px] text-[40px] leading-[48px] sm:leading-[72px] lg:leading-[98px] mt-10 md:mt-20 text-white`}>
+            Hola, soy <br />
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#A91D22] to-secondary text-[48px] xs:text-[56px] sm:text-[75px] md:text-[90px] lg:text-[110px] leading-tight inline-block pt-1 md:pt-2'>Emmanuel</span><br />
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-secondary to-[#A91D22] text-[48px] xs:text-[56px] sm:text-[75px] md:text-[90px] lg:text-[110px] leading-tight inline-block pt-1 md:pt-2'>Gaviria</span>
           </h1>
-
         </div>
       </div>
+      
       <div className="sliderContainer md:z-[-10]">
         <div ref={slider} className="slider overflow-hidden text-secondary text-[70px] lg:text-[200px]">
-          <p ref={firstText} >Full-Stack Developer.</p>
-          <p ref={secondText}>Tech-Lead Developer.</p>
+          <p ref={firstText} >Desarrollador Full-Stack.</p>
+          <p ref={secondText}>Líder Técnico.</p>
         </div>
       </div>
 
-
-      <Image loading="lazy" src={heroImg} alt="hero" className="z-[-2] absolute top-24 right-0 animation drop-shadow-3xl"  />
+      <div className="z-[-2] absolute top-[36%] xs:top-[60%] md:top-[10%] lg:top-[12%] right-[70px] xs:right-[4%] md:right-[8%] lg:right-[12%] w-[68%] xs:w-[60%] md:w-[48%] lg:w-[42%] max-w-[240px] xs:max-w-[280px] md:max-w-[460px] lg:max-w-[540px] animation">
+        <Image 
+          loading="lazy" 
+          src={user} 
+          alt="Emmanuel Gaviria" 
+          className="w-full h-auto drop-shadow-3xl object-contain" 
+        />
+      </div>
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-30 cursor-pointer'>
         <a href='#about'>

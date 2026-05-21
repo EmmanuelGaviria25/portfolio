@@ -1,0 +1,63 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Strong Glow Filter for Crimson Accent -->
+    <filter id="glow-arch" x="-30%" y="-30%" width="160%" height="160%" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComponentTransfer in="blur" result="boost">
+        <feFuncA type="linear" slope="1.8"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="boost" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Primary Crimson to Red Gradient -->
+    <linearGradient id="grad-crimson-arch" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E44" />
+      <stop offset="60%" stop-color="#C22026" />
+      <stop offset="100%" stop-color="#7B0F13" />
+    </linearGradient>
+
+    <!-- Subtle connection line gradient -->
+    <linearGradient id="grad-arch-flow" x1="32" y1="12" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E44" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#A91D22" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- Network Grid and Connections in Background -->
+  <!-- Dotted coordinate circle -->
+  <circle cx="32" cy="32" r="24" stroke="url(#grad-arch-flow)" stroke-width="1.2" stroke-dasharray="3 3" />
+  <!-- Diagonal axis pathways -->
+  <line x1="8" y1="8" x2="56" y2="56" stroke="url(#grad-arch-flow)" stroke-width="1.2" />
+  <line x1="56" y1="8" x2="8" y2="56" stroke="url(#grad-arch-flow)" stroke-width="1.2" />
+  <!-- Connecting links -->
+  <path d="M12 32H52" stroke="url(#grad-arch-flow)" stroke-width="1.5" />
+
+  <!-- Center Floating Isometric System Cubes (Main Highlight - Scaled Up for Visual Pop) -->
+  <g filter="url(#glow-arch)">
+    <!-- 1. Central Core Cube -->
+    <!-- Top Face -->
+    <path d="M32 20 L48 28 L32 36 L16 28 Z" fill="#1C1C1E" stroke="url(#grad-crimson-arch)" stroke-width="2.5" />
+    <!-- Front Left Face -->
+    <path d="M16 28 L32 36 L32 52 L16 44 Z" fill="#141416" stroke="url(#grad-crimson-arch)" stroke-width="2.5" />
+    <!-- Front Right Face -->
+    <path d="M32 36 L48 28 L48 44 L32 52 Z" fill="#1A1A1C" stroke="url(#grad-crimson-arch)" stroke-width="2.5" />
+
+    <!-- 2. Upper Floating Satellite Block (Cloud/Integration) -->
+    <!-- Isometric Cube at top center -->
+    <path d="M32 6 L42 10 L32 14 L22 10 Z" fill="#1C1C1E" stroke="url(#grad-crimson-arch)" stroke-width="1.8" />
+    <path d="M22 10 L32 14 L32 20 L22 16 Z" fill="#141416" stroke="url(#grad-crimson-arch)" stroke-width="1.8" />
+    <path d="M32 14 L42 10 L42 16 L32 20 Z" fill="#1A1A1C" stroke="url(#grad-crimson-arch)" stroke-width="1.8" />
+    
+    <!-- Connection beam from top cube to central cube -->
+    <line x1="32" y1="20" x2="32" y2="23" stroke="#FF3E44" stroke-width="2" stroke-dasharray="2 2" />
+
+    <!-- 3. Side Satellite Nodes (API & Database Nodes) -->
+    <!-- Left small active node -->
+    <circle cx="12" cy="32" r="3.5" fill="#32D74B" stroke="url(#grad-crimson-arch)" stroke-width="1" />
+    <!-- Right small active node -->
+    <circle cx="52" cy="32" r="3.5" fill="#FF3E44" stroke="url(#grad-crimson-arch)" stroke-width="1" />
+  </g>
+</svg>

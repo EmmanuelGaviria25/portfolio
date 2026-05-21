@@ -1,19 +1,16 @@
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata = {
   title: "Emma Dev",
-  description: "Emmanuel Gaviria is a full stack developer.",
+  description: "Emmanuel Gaviria es un desarrollador full stack.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <Script
         strategy="lazyOnload"
         async
@@ -27,7 +24,7 @@ export default function RootLayout({ children }) {
         `}
       </Script>
       <SmoothScroll />
-      <body className={inter.className}>
+      <body>
         <Toaster />
         {children}
       </body>

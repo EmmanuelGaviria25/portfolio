@@ -7,29 +7,36 @@ import { services } from "../constants/constants"
 import { SectionWrapper } from "./hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import Image from "next/image";
-import color_sharp from "../assets/color_sharp.png";
-import astronaut from "../assets/header.png";
 
 const ServiceCard = ({ index, title, icon }) => (
   <Tilt className='xs:w-[250px] w-full'
-    glareEnable={true} glareMaxOpacity={0.8} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px"
-    tiltMaxAngleX={30} tiltMaxAngleY={30} tiltEnable={true} perspective={1000}
+    glareEnable={true}
+    glareMaxOpacity={0.25}
+    glareColor="#FF3E44"
+    glarePosition="all"
+    glareBorderRadius="20px"
+    tiltMaxAngleX={12}
+    tiltMaxAngleY={12}
+    tiltEnable={true}
+    perspective={1000}
   >
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
+      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card hover:shadow-[0_0_30px_rgba(169,29,34,0.35)] transition-all duration-500'
     >
       <div
-
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className='bg-gradient-to-b from-[#1C1C1E] to-[#0A0A0C] rounded-[20px] py-8 px-6 min-h-[280px] flex justify-center items-center flex-col border border-[#2B0E11]/30 backdrop-blur-md group transition-all duration-300'
       >
-        <Image
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
+        {/* Recessed Circular Tech Badge for the Icon */}
+        <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#151517] to-[#0D0D0E] flex justify-center items-center shadow-[inset_0_2px_6px_rgba(0,0,0,0.8),0_1px_2px_rgba(255,255,255,0.05)] border border-[#3E1417]/50 mb-6 group-hover:border-[#FF3E44]/40 transition-all duration-300">
+          <Image
+            src={icon}
+            alt={title}
+            className='w-14 h-14 object-contain filter drop-shadow-[0_0_8px_rgba(255,62,68,0.3)] group-hover:scale-110 transition-all duration-300'
+          />
+        </div>
 
-        <h3 className='text-white text-[20px] font-bold text-center'>
+        <h3 className='text-white text-[19px] font-bold text-center tracking-wide group-hover:text-[#FF3E44] transition-colors duration-300'>
           {title}
         </h3>
       </div>
@@ -41,41 +48,40 @@ const About = () => {
   return (
     <>
       <div className='relative overflow-hidden lg:overflow-visible w-full'>
+        {/* Soft elegant burgundy glowing ambient light */}
+        <div className="absolute top-0 -left-40 w-[300px] h-[300px] bg-burgundy rounded-full filter blur-[120px] opacity-25 z-[-1]" />
+        
         <motion.div variants={textVariant()}>
-          <p className={'sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider'}>Introduction</p>
-          <h2 className={'text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'}>Overview.</h2>
+          <p className={'sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider'}>Introducción</p>
+          <h2 className={'text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'}>Presentación.</h2>
         </motion.div>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 text-secondary text-[18px] max-w-3xl leading-[30px] font-semibold'
         >
-          I am a Senior Fullstack Software Developer and Coordinator with extensive experience in developing backend and frontend applications across various industries.
+          Soy un Ingeniero de Software Fullstack y Coordinador con amplia experiencia en el desarrollo de aplicaciones backend y frontend en diversas industrias.
         </motion.p>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 text-secondary text-[18px] max-w-3xl leading-[30px] font-semibold'
         >
-          I have worked on key enterprise projects using technologies such as JavaScript, TypeScript, Angular, React, and Java to build information management systems, 
-          banking platforms, e-commerce applications, and custom software solutions. 
+          He trabajado en proyectos empresariales clave utilizando tecnologías como JavaScript, TypeScript, Angular, React y Java para construir sistemas de gestión de información, plataformas bancarias, aplicaciones de comercio electrónico y soluciones de software a la medida.
         </motion.p>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 text-secondary text-[18px] max-w-3xl leading-[30px] font-semibold'
         >
-          My experience includes designing and implementing scalable and robust architectures using frameworks like Next.js, Spring, and Hibernate, 
-          as well as integrating systems through web services and RESTful APIs. 
+          Mi experiencia incluye el diseño e implementación de arquitecturas escalables y robustas utilizando frameworks como Next.js, Spring e Hibernate, así como la integración de sistemas a través de servicios web y APIs RESTful.
         </motion.p>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 text-secondary text-[18px] max-w-3xl leading-[30px] font-semibold'
         >
-        Additionally, I have led technical teams, ensuring the delivery of efficient and high-performance solutions.
+          Además, he liderado equipos técnicos, asegurando la entrega de soluciones eficientes y de alto rendimiento.
         </motion.p>
-        <Image src={color_sharp} alt="color-sharp" className="absolute z-[-1] h-80 -left-80 w-screen -top-20" />
-        <Image src={astronaut} alt="astronaut" className="absolute z-[-1] h-80 w-80 -right-20 animation top-20" />
       </div>
 
-      <div className='mt-20 flex-wrap justify-center gap-10 hidden md:flex'>
+      <div className='mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full justify-items-center justify-center max-w-5xl mx-auto'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

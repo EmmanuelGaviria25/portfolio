@@ -5,20 +5,20 @@ import { SectionWrapper } from "./hoc";
 import { technologies } from "../constants/constants";
 import { motion } from "framer-motion";
 import { textVariant } from "../utils/motion";
-import Image from "next/image";
-import color_sharp from "../assets/color_sharp.png";
 import Skills from "./Skills";
 
 const Tech = () => {
   return (
     <>
     <div className='relative'>
-     <motion.div variants={textVariant()}>
-        <p className={'sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider'}>Tech</p>
-        <h2 className={'text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'}>Skills.</h2>
+      {/* Soft burgundy glowing ambient light for tech section */}
+      <div className="absolute top-0 -left-60 w-[300px] h-[300px] bg-burgundy rounded-full filter blur-[120px] opacity-25 z-[-1]" />
+      
+      <motion.div variants={textVariant()}>
+        <p className={'sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider'}>Tecnología</p>
+        <h2 className={'text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'}>Habilidades.</h2>
       </motion.div>
-      <Image src={color_sharp} alt="color-sharp" className="absolute z-[-1] h-80 -left-80 w-screen -top-20" />
-      </div>
+    </div>
     <div className='flex relative z-10 flex-col flex-wrap justify-center gap-10'>
       <div className=" flex flex-wrap gap-10 justify-center">
       {technologies.slice(0,7).map((technology,index) => (

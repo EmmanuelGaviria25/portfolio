@@ -1,8 +1,12 @@
 import logo from "./logo.png";
-import backend from "./backend.png";
+import programming from "./programming_icon.svg";
 import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
+import backend from "./backend_icon.svg";
+import mobile from "./mobile_icon.svg";
+import web from "./frontend_icon.svg";
+import architecture from "./architecture_icon.svg";
+import leader from "./leader_icon.svg";
+import devops from "./devops_icon.svg";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
@@ -37,13 +41,29 @@ import jobit from "./jobit.png";
 import inkSync from "./ink.png";
 import tracker from "./tracker.png";
 import socialSphere from "./socialSphere.png";
+import prontury from "./prontury.png";
+import pronterasst from "./pronterasst.png";
+import diamondLogo from "./diamond_logo.png";
+import halftonePattern from "./halftone_pattern.png";
+import personalBrandCard from "./personal_brand_card.png";
+import user from "./user_new.png";
 
 export {
+  prontury,
+  pronterasst,
+  diamondLogo,
+  halftonePattern,
+  personalBrandCard,
+  user,
   logo,
   backend,
   creator,
   mobile,
   web,
+  architecture,
+  leader,
+  devops,
+  programming,
   github,
   menu,
   close,

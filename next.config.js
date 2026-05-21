@@ -7,6 +7,7 @@ const nextConfig = {
         unoptimized: true,
     },
     reactStrictMode: true,
+    swcMinify: false,
     env: {
         TEMPLATE_ID : process.env.TEMPLATE_ID,
         SERVICE_ID : process.env.SERVICE_ID,

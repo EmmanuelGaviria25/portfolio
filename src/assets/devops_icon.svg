@@ -1,0 +1,53 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Strong Glow Filter for Crimson Accent -->
+    <filter id="glow-devops" x="-30%" y="-30%" width="160%" height="160%" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComponentTransfer in="blur" result="boost">
+        <feFuncA type="linear" slope="1.8"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="boost" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Primary Crimson to Red Gradient -->
+    <linearGradient id="grad-crimson-devops" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E44" />
+      <stop offset="60%" stop-color="#C22026" />
+      <stop offset="100%" stop-color="#7B0F13" />
+    </linearGradient>
+
+    <!-- Subtle radar/connection line gradient -->
+    <linearGradient id="grad-devops-radar" x1="32" y1="8" x2="32" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E44" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#A91D22" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+
+  <!-- High-tech Cloud and CI/CD pipelines in background -->
+  <!-- Outer Cloud Boundary (dashed transparent wireframe - Scaled Up) -->
+  <path d="M14 44C9 44 5 40 5 35C5 30 9 26 14 26C15 20 22 15 30 15C38 15 45 21 46 28C51 28 55 32 55 37C55 42 51 45 46 45H14" stroke="url(#grad-devops-radar)" stroke-width="1.2" stroke-dasharray="3 2" fill="none" />
+
+  <!-- Dotted flow arrows showing deployment from cloud to staging/prod nodes -->
+  <line x1="30" y1="15" x2="30" y2="6" stroke="url(#grad-crimson-devops)" stroke-width="1.2" stroke-dasharray="2 2" />
+  <circle cx="30" cy="5" r="1.5" fill="#32D74B" />
+  
+  <line x1="30" y1="45" x2="30" y2="58" stroke="url(#grad-crimson-devops)" stroke-width="1.2" stroke-dasharray="2 2" />
+  <circle cx="30" cy="59" r="1.5" fill="#32D74B" />
+
+  <!-- Center Floating Infinity Core (Main Highlight representing CI/CD - Scaled Up for Visual Pop) -->
+  <g filter="url(#glow-devops)">
+    <!-- Infinity loop (CI/CD Pipeline) -->
+    <path d="M32 32C38 22 50 22 50 32C50 42 38 42 32 32C26 22 14 22 14 32C14 42 26 42 32 32Z" stroke="url(#grad-crimson-devops)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    
+    <!-- Active Pipeline build nodes -->
+    <!-- Center core crossover node -->
+    <circle cx="32" cy="32" r="4.5" fill="#FF3E44" />
+    <!-- Left success node -->
+    <circle cx="18" cy="27" r="2" fill="#32D74B" stroke="url(#grad-crimson-devops)" stroke-width="0.75" />
+    <!-- Right warning/compiling node -->
+    <circle cx="46" cy="37" r="2" fill="#FF9F0A" stroke="url(#grad-crimson-devops)" stroke-width="0.75" />
+  </g>
+</svg>
