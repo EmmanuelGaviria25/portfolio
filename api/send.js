@@ -62,13 +62,13 @@ export default async function handler(req, res) {
             <!-- Encabezado con Logotipo Corporativo Estable de GitHub Raw y Badge Premium -->
             <div style="text-align: center; margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid #E2E8F0;">
               <div style="margin-bottom: 20px;">
-                <img src="https://emma-dev.com/logo.png" alt="Emmanuel Gaviria" style="height: 50px; max-width: 260px; object-fit: contain; outline: none; border: none; filter: drop-shadow(0 4px 12px rgba(255, 62, 68, 0.15));" />
+                <img src="https://www.emma-dev.com/logo.png" alt="Emmanuel Gaviria" style="height: 50px; max-width: 260px; object-fit: contain; outline: none; border: none; filter: drop-shadow(0 4px 12px rgba(255, 62, 68, 0.15));" />
               </div>
               <div style="display: inline-block; padding: 6px 14px; border-radius: 99px; background: rgba(255, 62, 68, 0.08); border: 1px solid rgba(255, 62, 68, 0.2); color: #FF3E44; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">
                 📥 NUEVO MENSAJE DE CONTACTO
               </div>
               <p style="color: #64748B; margin: 0; font-size: 14px; font-weight: 500; letter-spacing: -0.01em;">
-                Recibido de forma segura desde tu portafolio <a href="https://emma-dev.com" style="color: #FF3E44; text-decoration: none; font-weight: 600;">emma-dev.com</a>
+                Recibido de forma segura desde tu portafolio <a href="https://www.emma-dev.com" style="color: #FF3E44; text-decoration: none; font-weight: 600;">emma-dev.com</a>
               </p>
             </div>
             
