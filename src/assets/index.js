@@ -1,6 +1,5 @@
 import logo from "./logo.png";
 import programming from "./programming_icon.svg";
-import creator from "./creator.png";
 import backend from "./backend_icon.svg";
 import mobile from "./mobile_icon.svg";
 import web from "./frontend_icon.svg";
@@ -37,10 +36,7 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
 import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import inkSync from "./ink.png";
 import tracker from "./tracker.png";
-import socialSphere from "./socialSphere.png";
 import prontury from "./prontury.png";
 import pronterasst from "./pronterasst.png";
 import diamondLogo from "./diamond_logo.png";
@@ -57,7 +53,6 @@ export {
   user,
   logo,
   backend,
-  creator,
   mobile,
   web,
   architecture,
@@ -85,10 +80,7 @@ export {
   starbucks,
   tesla,
   carrent,
-  jobit,
-  inkSync,
   tracker,
-  socialSphere,
   nextjs,
   express,
   java,
