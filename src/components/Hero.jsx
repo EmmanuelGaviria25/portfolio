@@ -10,7 +10,8 @@ const Hero = () => {
   const secondText = useRef(null);
   const slider = useRef(null);
   const requestRef = useRef(null);
-  const imgRef = useRef(null);
+  const canvasRef = useRef(null);
+  const preloadedImages = useRef([]);
 
   useEffect(() => {
     let xPercent = 0;
@@ -62,16 +63,16 @@ const Hero = () => {
     };
   }, []);
 
-  // Preload frames and play cinematic 24 FPS animation using requestAnimationFrame
+  // Preload frames and play cinematic animation using Canvas for maximum performance and to avoid browser lazy-loading interventions
   useEffect(() => {
     const totalFrames = 102;
-    const loadedImages = [];
+    preloadedImages.current = [];
 
-    // Preload images into browser memory cache for lag-free rendering
+    // Preload images into browser memory cache and keep references to prevent garbage collection
     for (let i = 0; i < totalFrames; i++) {
       const img = new window.Image();
       img.src = `/frames_hero/frame_${String(i).padStart(3, '0')}.webp`;
-      loadedImages.push(img);
+      preloadedImages.current.push(img);
     }
 
     let currentFrame = 0;
@@ -86,12 +87,36 @@ const Hero = () => {
 
       if (elapsed >= interval) {
         currentFrame = (currentFrame + 1) % totalFrames;
-        if (imgRef.current) {
-          imgRef.current.src = `/frames_hero/frame_${String(currentFrame).padStart(3, '0')}.webp`;
+        const canvas = canvasRef.current;
+        if (canvas) {
+          const ctx = canvas.getContext('2d');
+          const img = preloadedImages.current[currentFrame];
+          if (img && img.complete) {
+            // Adjust canvas internal dimensions dynamically based on first loaded image
+            if (canvas.width !== img.naturalWidth || canvas.height !== img.naturalHeight) {
+              canvas.width = img.naturalWidth || 800;
+              canvas.height = img.naturalHeight || 800;
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          }
         }
         lastTime = timestamp - (elapsed % interval);
       }
       animId = requestAnimationFrame(animateFrames);
+    };
+
+    // Draw initial placeholder frame immediately when loaded
+    const initialImg = new window.Image();
+    initialImg.src = "/frames_hero/frame_099.webp";
+    initialImg.onload = () => {
+      const canvas = canvasRef.current;
+      if (canvas) {
+        canvas.width = initialImg.naturalWidth || 800;
+        canvas.height = initialImg.naturalHeight || 800;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(initialImg, 0, 0, canvas.width, canvas.height);
+      }
     };
 
     animId = requestAnimationFrame(animateFrames);
@@ -140,10 +165,8 @@ const Hero = () => {
         {/* Soft burgundy glowing backdrop perfectly centered behind the character */}
         <div className="absolute w-[80%] aspect-square bg-burgundy rounded-full filter blur-[100px] md:blur-[150px] opacity-30 z-[-1]" />
 
-        <img
-          ref={imgRef}
-          src="/frames_hero/frame_099.webp"
-          alt="Emmanuel Gaviria"
+        <canvas
+          ref={canvasRef}
           className="w-full h-auto drop-shadow-3xl object-contain select-none pointer-events-none relative z-[1]"
         />
       </div>
