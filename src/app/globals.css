@@ -215,6 +215,13 @@
   height: 100vh;
 }
 
+@media (max-width: 768px) {
+  .banner {
+    background-size: 120% auto;
+    background-position: center 10%;
+  }
+}
+
 
 
 .animation {
@@ -277,11 +284,15 @@
 .sliderContainer{
   position: absolute;
   top: calc(100vh - 350px);
+  overflow: hidden;
+  width: 100%;
 }
 
 .slider{
   position: relative;
   white-space: nowrap;
+  display: flex;
+  width: max-content;
 }
 
 .slider p{

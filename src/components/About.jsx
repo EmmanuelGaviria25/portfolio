@@ -25,18 +25,18 @@ const ServiceCard = ({ index, title, icon }) => (
       className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card hover:shadow-[0_0_30px_rgba(169,29,34,0.35)] transition-all duration-500'
     >
       <div
-        className='bg-gradient-to-b from-[#1C1C1E] to-[#0A0A0C] rounded-[20px] py-8 px-6 min-h-[280px] flex justify-center items-center flex-col border border-[#2B0E11]/30 backdrop-blur-md group transition-all duration-300'
+        className='bg-gradient-to-b from-[#1C1C1E] to-[#0A0A0C] rounded-[20px] py-5 px-3 xs:py-8 xs:px-6 min-h-[180px] xs:min-h-[280px] flex justify-center items-center flex-col border border-[#2B0E11]/30 backdrop-blur-md group transition-all duration-300'
       >
         {/* Recessed Circular Tech Badge for the Icon */}
-        <div className="w-20 h-20 rounded-full bg-gradient-to-b from-[#151517] to-[#0D0D0E] flex justify-center items-center shadow-[inset_0_2px_6px_rgba(0,0,0,0.8),0_1px_2px_rgba(255,255,255,0.05)] border border-[#3E1417]/50 mb-6 group-hover:border-[#FF3E44]/40 transition-all duration-300">
+        <div className="w-14 h-14 xs:w-20 xs:h-20 rounded-full bg-gradient-to-b from-[#151517] to-[#0D0D0E] flex justify-center items-center shadow-[inset_0_2px_6px_rgba(0,0,0,0.8),0_1px_2px_rgba(255,255,255,0.05)] border border-[#3E1417]/50 mb-3 xs:mb-6 group-hover:border-[#FF3E44]/40 transition-all duration-300">
           <Image
             src={icon}
             alt={title}
-            className='w-14 h-14 object-contain filter drop-shadow-[0_0_8px_rgba(255,62,68,0.3)] group-hover:scale-110 transition-all duration-300'
+            className='w-8 h-8 xs:w-14 xs:h-14 object-contain filter drop-shadow-[0_0_8px_rgba(255,62,68,0.3)] group-hover:scale-110 transition-all duration-300'
           />
         </div>
 
-        <h3 className='text-white text-[19px] font-bold text-center tracking-wide group-hover:text-[#FF3E44] transition-colors duration-300'>
+        <h3 className='text-white text-[13px] xs:text-[19px] font-bold text-center tracking-wide group-hover:text-[#FF3E44] transition-colors duration-300'>
           {title}
         </h3>
       </div>
@@ -81,7 +81,7 @@ const About = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full justify-items-center justify-center max-w-5xl mx-auto'>
+      <div className='mt-20 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 xs:gap-10 w-full justify-items-center justify-center max-w-5xl mx-auto'>
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}

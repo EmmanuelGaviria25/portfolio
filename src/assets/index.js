@@ -44,41 +44,7 @@ import halftonePattern from "./halftone_pattern.png";
 import personalBrandCard from "./personal_brand_card.png";
 import user from "./user_new.png";
 
-import frame1 from "./frame1.png";
-import frame2 from "./frame2.png";
-import frame3 from "./frame3.png";
-import frame4 from "./frame4.png";
-import frame5 from "./frame5.png";
-import frame6 from "./frame6.png";
-import frame7 from "./frame7.png";
-import frame8 from "./frame8.png";
-import frame9 from "./frame9.png";
-import frame10 from "./frame10.png";
-import frame11 from "./frame11.png";
-import frame12 from "./frame12.png";
-import frame13 from "./frame13.png";
-
-const animationFrames = [
-  frame1, frame2, frame3, frame4, frame5,
-  frame6, frame7, frame8, frame9, frame10,
-  frame11, frame12, frame13
-];
-
 export {
-  animationFrames,
-  frame1,
-  frame2,
-  frame3,
-  frame4,
-  frame5,
-  frame6,
-  frame7,
-  frame8,
-  frame9,
-  frame10,
-  frame11,
-  frame12,
-  frame13,
   prontury,
   pronterasst,
   diamondLogo,

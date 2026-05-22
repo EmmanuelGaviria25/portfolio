@@ -1,8 +1,6 @@
 'use client'
 import { motion } from "framer-motion";
 
-import Image from "next/image";
-import { user } from "../assets";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -11,42 +9,101 @@ const Hero = () => {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
-
-  let xPercent = 0;
-  let direction = -1;
+  const requestRef = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
+    let xPercent = 0;
+    let direction = -1;
+
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(slider.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        scrub: 0.5,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: e => direction = e.direction * -1
-      },
+
+    const trigger = ScrollTrigger.create({
+      trigger: document.documentElement,
+      scrub: 0.5,
+      start: 0,
+      end: window.innerHeight,
+      onUpdate: e => {
+        direction = e.direction * -1;
+      }
+    });
+
+    const scrollAnim = gsap.to(slider.current, {
+      scrollTrigger: trigger,
       x: "-500px",
-    })
-    requestAnimationFrame(animate);
+    });
+
+    const animate = () => {
+      if (xPercent < -100) {
+        xPercent = 0;
+      } else if (xPercent > 0) {
+        xPercent = -100;
+      }
+
+      if (firstText.current && secondText.current) {
+        gsap.set(firstText.current, { xPercent: xPercent });
+        gsap.set(secondText.current, { xPercent: xPercent });
+      }
+
+      // 0.02 is a smooth, elegant, and perfectly readable speed
+      xPercent += 0.02 * direction;
+
+      requestRef.current = requestAnimationFrame(animate);
+    };
+
+    requestRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
+      trigger.kill();
+      scrollAnim.kill();
+    };
   }, []);
 
-  const animate = () => {
-    if (xPercent < -100) {
-      xPercent = 0;
+  // Preload frames and play cinematic 24 FPS animation using requestAnimationFrame
+  useEffect(() => {
+    const totalFrames = 102;
+    const loadedImages = [];
+
+    // Preload images into browser memory cache for lag-free rendering
+    for (let i = 0; i < totalFrames; i++) {
+      const img = new window.Image();
+      img.src = `/frames_hero/frame_${String(i).padStart(3, '0')}.webp`;
+      loadedImages.push(img);
     }
-    else if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent })
-    gsap.set(secondText.current, { xPercent: xPercent })
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
-  }
+
+    let currentFrame = 0;
+    let lastTime = 0;
+    const fps = 12; // Slow, premium and relaxed 12 FPS frame rate
+    const interval = 1000 / fps;
+    let animId = null;
+
+    const animateFrames = (timestamp) => {
+      if (!lastTime) lastTime = timestamp;
+      const elapsed = timestamp - lastTime;
+
+      if (elapsed >= interval) {
+        currentFrame = (currentFrame + 1) % totalFrames;
+        if (imgRef.current) {
+          imgRef.current.src = `/frames_hero/frame_${String(currentFrame).padStart(3, '0')}.webp`;
+        }
+        lastTime = timestamp - (elapsed % interval);
+      }
+      animId = requestAnimationFrame(animateFrames);
+    };
+
+    animId = requestAnimationFrame(animateFrames);
+
+    return () => {
+      if (animId) cancelAnimationFrame(animId);
+    };
+  }, []);
 
   return (
     <section className={`relative z-[-1] w-full h-screen mx-auto banner overflow-hidden`}>
-      {/* Soft burgundy glowing backdrop behind the business card */}
-      <div className="absolute top-[31%] right-[15%] lg:top-[15%] lg:right-[15%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-burgundy rounded-full filter blur-[100px] md:blur-[150px] opacity-30 z-[-3] animation" />
+      {/* Soft burgundy glowing backdrop is now dynamically centered inside the character container below */}
 
       <div
         className={`absolute inset-0 top-[120px] md:top-[150px] right-0 md:right-40 z-[-1] animation max-w-7xl mx-auto sm:px-16 px-6 flex flex-row items-start gap-5`}
@@ -56,35 +113,38 @@ const Hero = () => {
           <div className='w-1 sm:h-80 h-40 winered-gradient' />
         </div>
 
-        <div data-scroll data-scroll-speed='0.4'>
-          <h1 className={`font-black lg:text-[90px] sm:text-[65px] xs:text-[55px] text-[40px] leading-[48px] sm:leading-[72px] lg:leading-[98px] mt-10 md:mt-20 text-white`}>
+        <div>
+          <h1 className={`font-black lg:text-[80px] sm:text-[58px] xs:text-[48px] text-[35px] leading-[42px] sm:leading-[65px] lg:leading-[88px] mt-10 md:mt-20 text-white`}>
             Hola, soy <br />
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#A91D22] to-secondary text-[48px] xs:text-[56px] sm:text-[75px] md:text-[90px] lg:text-[110px] leading-tight inline-block pt-1 md:pt-2'>Emmanuel</span><br />
-            <span className='text-transparent bg-clip-text bg-gradient-to-r from-secondary to-[#A91D22] text-[48px] xs:text-[56px] sm:text-[75px] md:text-[90px] lg:text-[110px] leading-tight inline-block pt-1 md:pt-2'>Gaviria</span>
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-[#A91D22] to-secondary text-[42px] xs:text-[50px] sm:text-[68px] md:text-[80px] lg:text-[95px] leading-tight inline-block pt-1 md:pt-2'>Emmanuel</span><br />
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-secondary to-[#A91D22] text-[42px] xs:text-[50px] sm:text-[68px] md:text-[80px] lg:text-[95px] leading-tight inline-block pt-1 md:pt-2'>Gaviria</span>
           </h1>
         </div>
       </div>
-      
+
       <div className="sliderContainer z-[-10] select-none pointer-events-none w-full">
-        <div 
-          ref={slider} 
-          className="slider overflow-hidden font-black tracking-wider uppercase text-[70px] lg:text-[200px]"
+        <div
+          ref={slider}
+          className="slider font-black tracking-wider uppercase text-[70px] lg:text-[200px]"
           style={{
             WebkitTextStroke: "1px rgba(255, 255, 255, 0.15)",
             color: "transparent"
           }}
         >
-          <p ref={firstText}>Desarrollador Full-Stack // Arquitecto de Software // Líder Técnico // Especialista Cloud & DevOps // Desarrollador Mobile //</p>
-          <p ref={secondText}>Desarrollador Full-Stack // Arquitecto de Software // Líder Técnico // Especialista Cloud & DevOps // Desarrollador Mobile //</p>
+          <p ref={firstText}>Arquitecto de Software // Líder Técnico // Desarrollador Fullstack //</p>
+          <p ref={secondText}>Arquitecto de Software // Líder Técnico // Desarrollador Fullstack //</p>
         </div>
       </div>
 
-      <div className="z-[-2] absolute top-[36%] xs:top-[60%] md:top-[10%] lg:top-[12%] right-[70px] xs:right-[4%] md:right-[8%] lg:right-[12%] w-[68%] xs:w-[60%] md:w-[48%] lg:w-[42%] max-w-[240px] xs:max-w-[280px] md:max-w-[460px] lg:max-w-[540px] animation">
-        <Image 
-          loading="lazy" 
-          src={user} 
-          alt="Emmanuel Gaviria" 
-          className="w-full h-auto drop-shadow-3xl object-contain" 
+      <div className="z-[-2] absolute top-[39%] xs:top-[44%] md:top-[18%] lg:top-[16%] left-0 right-0 mx-auto md:left-auto md:right-[2%] md:mx-0 w-[110%] xs:w-[95%] md:w-[65%] lg:w-[58%] max-w-[450px] xs:max-w-[480px] md:max-w-[650px] lg:max-w-[760px] flex items-center justify-center animation">
+        {/* Soft burgundy glowing backdrop perfectly centered behind the character */}
+        <div className="absolute w-[80%] aspect-square bg-burgundy rounded-full filter blur-[100px] md:blur-[150px] opacity-30 z-[-1]" />
+
+        <img
+          ref={imgRef}
+          src="/frames_hero/frame_099.webp"
+          alt="Emmanuel Gaviria"
+          className="w-full h-auto drop-shadow-3xl object-contain select-none pointer-events-none relative z-[1]"
         />
       </div>
 

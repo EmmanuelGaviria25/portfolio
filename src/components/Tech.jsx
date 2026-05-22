@@ -19,28 +19,12 @@ const Tech = () => {
         <h2 className={'text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'}>Habilidades.</h2>
       </motion.div>
     </div>
-    <div className='flex relative z-10 flex-col flex-wrap justify-center gap-10'>
-      <div className=" flex flex-wrap gap-10 justify-center">
-      {technologies.slice(0,7).map((technology,index) => (
-        <div className='w-28 h-28 mt-5' key={technology.name}>
+    <div className='grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-9 gap-3 xs:gap-5 md:gap-8 justify-center items-center relative z-10 w-full max-w-5xl mx-auto mt-10 px-2 xs:px-0'>
+      {technologies.map((technology, index) => (
+        <div className='w-full aspect-square' key={technology.name}>
           <Skills name={technology.name} icon={technology.icon} index={index} />
         </div>
       ))}
-      </div>
-      <div className=" flex flex-wrap gap-10 justify-center">
-      {technologies.slice(7,14).map((technology,index) => (
-        <div className='w-28 h-28 mt-5' key={technology.name}>
-          <Skills name={technology.name} icon={technology.icon} index={index} />
-        </div>
-      ))}
-      </div>
-      <div className=" flex flex-wrap gap-10 justify-center">
-      {technologies.slice(14, 18).map((technology,index) => (
-        <div className='w-24 h-24 mt-5' key={technology.name}>
-          <Skills name={technology.name} icon={technology.icon} index={index} />
-        </div>
-      ))}
-      </div>
     </div>
     <div className="absolute left-[calc(-50vw+50%)] w-screen h-full top-0 overflow-hidden pointer-events-none z-[-10] opacity-[0.25]">
       <video
