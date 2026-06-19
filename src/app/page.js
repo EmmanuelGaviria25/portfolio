@@ -1,4 +1,4 @@
-import { About, Contact, Hero, Navbar, Tech, Works } from "@/components";
+import { About, Contact, Experience, Hero, Navbar, Tech, Works } from "@/components";
 import dynamic from "next/dynamic";
 
 export default function Home() {
@@ -14,6 +14,7 @@ export default function Home() {
             <Tech />
           </div>
           <Works />
+          <Experience />
           <Contact />
         </div>
         <StarsCanvas />

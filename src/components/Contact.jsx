@@ -129,7 +129,6 @@ const Contact = () => {
 
         <div className="relative z-10 flex flex-col gap-6">
           <div>
-            <p className={styles.sectionSubText}>Hablemos</p>
             <h3 className="text-white font-black md:text-[50px] sm:text-[40px] xs:text-[30px] text-[28px] mt-2">
               Conéctate<span className="text-[#FF3E44]">.</span>
             </h3>
@@ -221,7 +220,6 @@ const Contact = () => {
         <div className="absolute -top-24 -right-24 w-[200px] h-[200px] bg-[#FF3E44] rounded-full filter blur-[120px] opacity-15 pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-[200px] h-[200px] bg-[#5A181C] rounded-full filter blur-[100px] opacity-15 pointer-events-none" />
 
-        <p className={styles.sectionSubText}>Ponte en contacto</p>
         <h3 className="text-white font-black md:text-[50px] sm:text-[40px] xs:text-[30px] text-[28px] mt-2">
           Contacto<span className="text-[#FF3E44]">.</span>
         </h3>

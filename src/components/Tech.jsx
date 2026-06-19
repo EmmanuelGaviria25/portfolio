@@ -15,7 +15,6 @@ const Tech = () => {
       <div className="absolute top-0 -left-60 w-[300px] h-[300px] bg-burgundy rounded-full filter blur-[120px] opacity-25 z-[-1]" />
       
       <motion.div variants={textVariant()}>
-        <p className={'sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider'}>Tecnología</p>
         <h2 className={'text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]'}>Habilidades.</h2>
       </motion.div>
     </div>
@@ -41,4 +40,4 @@ const Tech = () => {
   );
 };
 
-export default SectionWrapper(Tech, "");
+export default SectionWrapper(Tech, "tech");

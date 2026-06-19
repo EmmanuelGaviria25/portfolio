@@ -175,7 +175,6 @@ const Works = () => {
         <div className="absolute top-0 -left-60 w-[300px] h-[300px] bg-burgundy rounded-full filter blur-[120px] opacity-25 z-[-1]" />
 
         <div>
-          <p id="work" className={`${styles.sectionSubText} `}>Mi trabajo</p>
           <h2 className={`${styles.sectionHeadText}`}>Proyectos.</h2>
         </div>
 
